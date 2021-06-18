@@ -5,7 +5,8 @@ from ..models.dojo import Dojo
 
 @app.route('/')
 def index():
-    session.pop('form_response')
+    if 'form_response' in session:
+        session.pop('form_response')
     return render_template('index.html')
 @app.route('/submit', methods=['POST'])
 def submit():

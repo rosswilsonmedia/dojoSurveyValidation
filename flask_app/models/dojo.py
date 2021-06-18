@@ -22,13 +22,13 @@ class Dojo:
     def validate_form(data):
         is_valid=True
 
-        if len(data['name'])<2:
+        if 'name' not in data or len(data['name'])<2:
             flash("Name must be at least two characters.")
             is_valid=False
-        if data['location']==None or len(data['location'])<2:
+        if 'location' not in data or data['location']==None or len(data['location'])<2:
             flash("Location not valid for this form.")
             is_valid=False
-        if data['language']==None or len(data['language'])<2:
+        if 'language' not in data or data['language']==None or len(data['language'])<2:
             flash("Language not valid for this form.")
             is_valid=False
 
